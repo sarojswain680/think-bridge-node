@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const dbConfig = require('./Config/config');
 const mongoose = require('mongoose');
 
+const PORT = process.env.PORT || 3000 ;
+
 mongoose.Promise = global.Promise;
 // create express app
 const app = express();
@@ -34,8 +36,8 @@ app.get('/', (req, res) => {
 
 require('./app/routes/routes')(app);
 // listen for requests
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
 });
 
 
