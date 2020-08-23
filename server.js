@@ -3,12 +3,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dbConfig = require('./Config/config');
 const mongoose = require('mongoose');
+var cors = require('cors');
 
 const PORT = process.env.PORT || 3000 ;
 
 mongoose.Promise = global.Promise;
 // create express app
 const app = express();
+
+app.use(cors());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
